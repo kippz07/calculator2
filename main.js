@@ -1,5 +1,5 @@
 var loop = true;
-
+var optionSet = new Set(['a', 's', 'm', 'd', '', 'p', 'r', 2, 3, 'n', 'l', 'i', 'w'])
 
 run();
 
@@ -15,17 +15,17 @@ function run () {
 }
 
 function input () {
-	var option = prompt('Would you like to do (a)ddition, (s)ubtraction, (m)ultiplication, (d)ivision, (p)ower of, square (r)oot, largest of (2), largest of (3), (n)umber of words in a sentance, (l)ongest word in sentance?');
+	var option = prompt('What would you like to do: \n- (a)ddition \n- (s)ubtraction \n- (m)ultiplication \n- (d)ivision \n- (p)ower of \n- square (r)oot \n- largest of (2) \n- largest of (3) \n- (n)umber of words in a sentance \n- (l)ongest word in sentance \n- number of (i)nstances of a word \n(- w)ords longer than a length');
 
-		while (option != 'a' && option != 's' && option != 'm' && option != 'd' && option != '' && option != 'p' && option != 'r' && option != 2 && option != 3 && option != 'n' && option != 'l') {
-			option = prompt('Would you like to do: \n(a)ddition, (s)ubtraction, (m)ultiplication, (d)ivision, (p)ower of, square (r)oot, largest of (2), largest of (3), (n)umber of words in a sentance, (l)ongest word in sentance?');
+		while (!optionSet.has(option)) {
+			option = prompt('What would you like to do: \n- (a)ddition \n- (s)ubtraction \n- (m)ultiplication \n- (d)ivision \n- (p)ower of \n- square (r)oot \n- largest of (2) \n- largest of (3) \n- (n)umber of words in a sentance \n- (l)ongest word in sentance \n- number of (i)nstances of a word \n(- w)ords longer than a length');
 		}
 	return option;
 }
 
 function end () {
 	var choiceloop = true;
-	
+
 	while(choiceloop) {
 
 		if (choice === '') {
@@ -63,7 +63,14 @@ function userOption (option) {
 		case 'n':
 			choice = userChoice(numOfWords());
 			break;
-	
+
+		case 'i':
+			choice = userChoice(number());
+
+		case 'w':
+			choice = userChoice(longerThan());
+			break;
+
 		case 's':
 			choice = subtraction(firstNumber(), secondNumber()); 
 			break;
@@ -173,7 +180,7 @@ function numOfWords () {
 
 function longestWord () {
 	var words = prompt("Enter a sentance: ");
-	var words = string.split(' ');
+	var words = words.split(' ');
 	var length = 0;
 	for (var i = 0; i < words.length; i++) {
 		if (words[i].length > length) {
@@ -183,6 +190,31 @@ function longestWord () {
 	return length;
 }
 
+function number () {
+	var words = prompt("Enter a sentance: ");
+	var words = words.split(' ');
+	var word = prompt("Enter a word in your sentance: ")
+	var count = 0;
+	for (var i = 0; i < words.length; i++) {
+		if (words[i] === word) {
+			count++;
+		}
+	}
+	return count;
+}
+
+function longerThan (length) {
+	var words = prompt("Enter a sentance: ");
+	var words = words.split(' ');
+	var length = prompt("Enter a word length: ")
+	var new_string = '';
+	for (var i = 0; i < words.length; i++) {
+		if (words[i].length > length) {
+			new_string += words[i] + ' ';
+		}
+	}
+	return new_string;
+}
 
 
 

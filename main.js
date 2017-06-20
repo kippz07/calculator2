@@ -15,10 +15,10 @@ function run () {
 }
 
 function input () {
-	var option = prompt('What would you like to do: \n- (a)ddition \n- (s)ubtraction \n- (m)ultiplication \n- (d)ivision \n- (p)ower of \n- square (r)oot \n- largest of (2) \n- largest of (3) \n- (n)umber of words in a sentance \n- (l)ongest word in sentance \n- number of (i)nstances of a word \n(- w)ords longer than a length');
+	var option;
 
 		while (!optionSet.has(option)) {
-			option = prompt('What would you like to do: \n- (a)ddition \n- (s)ubtraction \n- (m)ultiplication \n- (d)ivision \n- (p)ower of \n- square (r)oot \n- largest of (2) \n- largest of (3) \n- (n)umber of words in a sentance \n- (l)ongest word in sentance \n- number of (i)nstances of a word \n(- w)ords longer than a length');
+			option = prompt('What would you like to do: \n- (a)ddition \n- (s)ubtraction \n- (m)ultiplication \n- (d)ivision \n- (p)ower of \n- square (r)oot \n- largest of (2) \n- largest of (3) \n- (n)umber of words in a sentance \n- (l)ongest word in sentance \n- number of (i)nstances of a word \n- (w)ords longer than a length');
 		}
 	return option;
 }
